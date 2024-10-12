@@ -369,6 +369,7 @@
 
 - (NSString *)jk_stringWithFormat:(NSString *)format {
     NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
+    outputFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
     [outputFormatter setDateFormat:format];
     
     NSString *retStr = [outputFormatter stringFromDate:self];
@@ -378,6 +379,7 @@
 
 + (NSDate *)jk_dateWithString:(NSString *)string format:(NSString *)format {
     NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
+    inputFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
     [inputFormatter setDateFormat:format];
     
     NSDate *date = [inputFormatter dateFromString:string];
